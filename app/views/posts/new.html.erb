@@ -1,0 +1,22 @@
+<h1>Posts#new</h1>
+<p>Find me in app/views/posts/new.html.erb</p>
+
+<table>
+	<%= form_for(@post) do |post| %>
+	<tr>
+		<td> <%= post.label :title %> </td>
+		<td> <%= post.text_field :title %> </td>
+	</tr>
+	<tr>
+		<td> <%= post.label :description %> </td>
+		<td> <%= post.text_area :description %> </td>
+	</tr>
+	<tr>
+		<td> <br> </td>
+		<td> <%= post.submit "Submit" %> </td>
+	</tr>
+	<% end %>
+</table>
+<hr>
+<%= link_to "Posts Home", posts_path %> | 
+<%= link_to "Home", root_path %>
