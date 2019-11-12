@@ -1,30 +1,29 @@
 <h1>Users#new</h1>
 <p>Find me in app/views/users/new.html.erb</p>
-
-<table>
-	<%= form_for(@user) do |user| %>
-	<tr>
-		<td> <%= user.label :username %> </td>
-		<td> <%= user.text_field :username %> </td>
-	</tr>
-	<tr>
-		<td> <%= user.label :email %> </td>
-		<td> <%= user.text_field :email %> </td>
-	</tr>
-	<tr>
-		<td> <%= user.label :password %> </td>
-		<td> <%= user.password_field :password %> </td>
-	</tr>
-	<tr>
-		<td>
-			<br>
-		</td>
-		<td>
-			<%= user.submit "Create User" %>
-		</td>
-	</tr>
-	<% end %>
-</table>
+<%= form_for(@user) do |u| %>
+	<table>	
+		<tr>
+			<td> <%= u.label :username %> </td>
+			<td> <%= u.text_field :username %> </td>
+		</tr>
+		<tr>
+			<td> <%= u.label :email %> </td>
+			<td> <%= u.text_field :email %> </td>
+		</tr>
+		<tr>
+			<td> <%= u.label :password %> </td>
+			<td> <%= u.password_field :password %> </td>
+		</tr>
+		<tr>
+			<td>
+				<br>
+			</td>
+			<td>
+				<%= u.submit "Create User" %>
+			</td>
+		</tr>	
+	</table>
+<% end %>
 <hr>
 <%= link_to "User list", users_path %> | 
 <%= link_to "Home", root_path %>
