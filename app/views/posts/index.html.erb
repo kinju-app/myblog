@@ -2,16 +2,17 @@
 <p>Find me in app/views/posts/index.html.erb</p>
 
 <table>
-	<th> #Id </th> <th> Title </th> <th> Description </th>
-	<% @posts.each do |post| %>
-	<tr>
-		<td> <%= post.id %> </td>
-		<td> <%= post.title %> </td>	
-		<td> <%= post.description %> </td>		
-		<td> <%= link_to "Edit", edit_post_path(post.id) %> </td>
-		<td> <%= link_to "Delete", post_path(post.id), method: :delete, data: {confirm: 'Are you sure?'} %> </td>
-	</tr>
-	<% end %>
+	<th> #Id </th> <th> Title </th> <th> Description </th> <th> User Name </th>
+		<% @posts.each do |post| %>
+			<tr>
+				<td> <%= post.id %> </td>
+				<td> <%= post.title %> </td>	
+				<td> <%= post.description %> </td>
+				<td> <%= post.user.username %> </td>
+				<td> <%= link_to "Edit", edit_post_path(post.id) %> </td>
+				<td> <%= link_to "Delete", post_path(post.id), method: :delete, data: {confirm: 'Are you sure?'} %> </td>
+			</tr>
+		<% end %>
 </table>
 <hr>
 <%= link_to "Create Post", new_post_path %>

@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  
+  before_action :require_user, except: [:index]  
   before_action :find_param, only: [:edit, :update, :destroy]
 
   def index
@@ -40,6 +40,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :description)
+    params.require(:post).permit(:title, :description, :user_id)
   end
 end

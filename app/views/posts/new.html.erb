@@ -10,6 +10,7 @@
 		<tr>
 			<td> <%= p.label :description %> </td>
 			<td> <%= p.text_area :description %> </td>
+			<%= p.hidden_field :user_id, :value => current_user.id %>			
 		</tr>
 		<tr>
 			<td> <br> </td>
