@@ -1,4 +1,7 @@
 class PostsController < ApplicationController
+  
+  before_action :find_param, only: [:edit, :update, :destroy]
+
   def index
     @posts = Post.all
   end
@@ -8,28 +11,33 @@ class PostsController < ApplicationController
   end
 
   def create    
-    @post = Post.create(post_params)   
-    redirect_to posts_path
+    @post = Post.new(post_params)
+    if @post.save      
+      redirect_to posts_path
+    else
+      render 'new'
+    end
   end
 
-  def edit
-    @post = Post.find(params[:id])
+  def edit    
   end
 
-  def update
-    @post = Post.find(params[:id])
+  def update    
     @post.update(post_params)
     redirect_to posts_path
   end
 
-  def destroy
-    @post = Post.find(params[:id])
+  def destroy    
     @post.destroy
     redirect_to posts_path
   end
 
 
   private 
+
+  def find_param
+    @post = Post.find(params[:id])
+  end
 
   def post_params
     params.require(:post).permit(:title, :description)
